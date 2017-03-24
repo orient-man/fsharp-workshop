@@ -1,7 +1,9 @@
 ﻿module App.Tests
 
 open System
+open System.Collections.Generic
 open System.Linq
+open Moq
 open NUnit.Framework
 open FsUnit
 open Swensen.Unquote
@@ -80,3 +82,53 @@ let getTestData () = [
 [<TestCaseSource("getTestData")>]
 let ``List.sort works as expected`` (data: TestData) =
     data.List |> List.sort =! data.Expected
+
+// Testing C# code
+[<Test>]
+let ``given positive feedback sends greetings to me (Mock version)`` () =
+    // arrange
+    let emailServiceMock = Mock<IEmailService>()
+    emailServiceMock
+        .Setup(fun o -> o.Send(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+        .Returns(true)
+        |> ignore
+    let service = WorkshopService(emailServiceMock.Object)
+
+    // act
+    service.GiveFeedback(true)
+
+    // assert
+    emailServiceMock.Verify(
+        (fun o -> o.Send(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())),
+        Times.AtLeastOnce())
+
+let createEmailService send =
+    { new IEmailService with
+        member __.Send(address, subject, body) = (address, subject, body) |> send }
+
+[<Test>]
+let ``given positive feedback sends greetings to me (look ma, no mock!)`` () =
+    // arrange
+    let mutable isSend = false
+    let service = WorkshopService(createEmailService (fun _ -> isSend <- true; true))
+
+    // act
+    service.GiveFeedback(true)
+
+    // assert
+    isSend |> should be True
+
+[<Test>]
+let ``given positive feedback sends greetings to me (with log)`` () =
+    // arrange
+    let log = List<_>()
+    let service =
+        WorkshopService(createEmailService (fun p -> p |> sprintf "Sending: %A" |> log.Add; true))
+
+    // act
+    service.GiveFeedback(true)
+
+    // assert
+    log
+    |> List.ofSeq
+    =! ["""Sending: ("orientman{at}gmail-dot-com", "Workshop", "Awesome work! Thank You!")"""]
