@@ -40,13 +40,13 @@ Good place to start F# journey. Why:
 
 Topics:
 
-* First F# project
-* [Paket](https://fsprojects.github.io/Paket/)
-* [FAKE](http://fsharp.github.io/FAKE/)
-* NUnit
-* [FsUnit](http://fsprojects.github.io/FsUnit/)
-* [Swensen.Unquote](http://www.swensensoftware.com/unquote)
-* (no)[Moq](https://github.com/moq/moq4)
+* Howto create your first F# project
+* [Paket](https://fsprojects.github.io/Paket/) - awesome NuGet replacement (and written in F#)
+* [FAKE](http://fsharp.github.io/FAKE/) - F# for your automation scripts
+* NUnit - just because it doesn't matter
+* [FsUnit](http://fsprojects.github.io/FsUnit/) - for human readable assertions
+* [Swensen.Unquote](http://www.swensensoftware.com/unquote) - for smth completely different
+* Testing OOP code with & without mocks (e.g. [Moq](https://github.com/moq/moq4))
 
 This part is doable outside of Visual Studio (even in .NET Core) but I will leave it as an exercise :).
 
