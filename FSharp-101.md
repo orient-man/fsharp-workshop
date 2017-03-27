@@ -5,6 +5,8 @@ F# 101
 
 Kilkoro lepszych ode mnie programistów odpowiada na to pytanie: https://zombiecodekill.com/2016/04/30/the-case-for-f-sharp/
 
+![Most hash tagged](./MostHashTagged.jpg)
+
 ## tl;dr
 
 - lepsze domyślne zachowania dla typów: niezmienność (immutability), niedozwolony null, działające strukturalne porównania (nie trzeba nadpisywać Equals/GetHashCode)
