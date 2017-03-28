@@ -50,9 +50,26 @@ Topics:
 
 This part is doable outside of Visual Studio (even in .NET Core) but I will leave it as an exercise :).
 
-## Part III: Application Development
+## Part III: Scripting
 
-## Part IV: Integration
+Lets come back to "basics": no projects, no building phase, just plain files.
+
+We will implement Writer & Reader using actor model.
+
+Topics:
+
+* [Agents (aka MailboxProcessor)](https://fsharpforfunandprofit.com/posts/concurrency-actor-model/) - for frictionless "threads" (not actually threads) and state machines
+* [FSharp.Data](http://fsharp.github.io/FSharp.Data/) - for seamless data access
+
+Bonus: Log watching, parsing and charting data.
+
+## Part IV: Application Development
+
+Topics:
+* Nancy+RestEase
+* TypeProviders
+* Agents (MailboxProcessor)
+* Rx
 
 ## Bibliography
 

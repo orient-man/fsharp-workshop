@@ -1,0 +1,8 @@
+framework: .net451
+source https://nuget.org/api/v2
+
+nuget FSharp.Charting = 0.87.0.0
+nuget FSharp.Control.AsyncSeq >= 2.0.3
+nuget FSharp.Data
+nuget Newtonsoft.Json
+nuget Rx-Linq >= 2.2.5
