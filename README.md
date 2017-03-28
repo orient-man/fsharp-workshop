@@ -53,3 +53,8 @@ This part is doable outside of Visual Studio (even in .NET Core) but I will leav
 ## Part III: Application Development
 
 ## Part IV: Integration
+
+## Bibliography
+
+* Presentation ["Year of Living Dangerously or F# in Production" (Polish)](https://github.com/orient-man/reveal.js/blob/fsharp-in-production/index.md)
+* [F# 101](./FSharp-101.md)
