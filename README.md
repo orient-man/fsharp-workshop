@@ -65,11 +65,13 @@ Bonus: Log watching, parsing and charting data.
 
 ## Part IV: Application Development
 
+To Be Done...
+
 Topics:
-* Nancy+RestEase
-* TypeProviders
-* Agents (MailboxProcessor)
-* Rx
+
+* Nancy + RestEase
+* [Rx](https://github.com/fsprojects/FSharp.Control.Reactive)
+
 
 ## Bibliography
 
