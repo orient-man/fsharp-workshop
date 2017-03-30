@@ -88,6 +88,6 @@ let log (txt: string) =
 let postToReader' = postToReader log
 let postToWriter' = postToWriter postToReader'
 
-// StartWriting |> postToWriter'
-// StopReading |> postToReader'
-// StopWriting |> postToWriter'
+StartWriting |> postToWriter'
+//StopReading |> postToReader'
+//StopWriting |> postToWriter'
