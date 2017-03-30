@@ -38,21 +38,21 @@ module Subscriber =
     let getTimer () =
         Observable.timerPeriod DateTimeOffset.Now (TimeSpan.FromMilliseconds 500.)
 
-    let getItemsStream2 timer getItems () =
+    let getItemsStream2 getItems =
         let pool (_, from) _ =
             let items = getItems from
             items, from + (items |> List.length)
 
-        timer
-        |> Observable.scanInit ([], 0) pool
-        |> Observable.map fst
-        |> Observable.flatmapSeq Seq.ofList
+        Observable.scanInit ([], 0) pool
+        >> Observable.map fst
+        >> Observable.flatmapSeq Seq.ofList
 
 module Program =
     open System
 
     //let getItemsStream = Subscriber.getItemsStream Async.Sleep Subscriber.getItems
-    let getItemsStream = Subscriber.getItemsStream2 (Subscriber.getTimer ()) Subscriber.getItems
+    let getItemsStream =
+        Subscriber.getTimer >> Subscriber.getItemsStream2 Subscriber.getItems
 
     let processItem { Id = id; Value = value } = printfn "%s:%d" id value
 
@@ -60,5 +60,5 @@ module Program =
     let main _ =
         let stream = getItemsStream ()
         use subs = stream |> Observable.subscribe processItem
-        Console.ReadKey true |> ignore
+        Console.ReadLine() |> ignore
         0 // return an integer exit code
