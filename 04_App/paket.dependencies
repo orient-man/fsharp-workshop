@@ -3,5 +3,8 @@ source https://nuget.org/api/v2
 
 nuget FAKE
 nuget FSharp.Core
+nuget FSharp.Control.Reactive
+nuget FSharp.Data
 nuget Nancy
 nuget Nancy.Hosting.Self
+nuget Newtonsoft.Json

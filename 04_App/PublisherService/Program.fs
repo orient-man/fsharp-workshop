@@ -48,7 +48,7 @@ module ItemStore =
         printfn "Storing %A" item
         db.Add item
 
-    let get from = db |> Seq.mapi (fun idx v -> idx, v) |> Seq.skip from |> List.ofSeq
+    let get from = db |> Seq.skip from |> List.ofSeq
 
 
 module CompositionRoot =

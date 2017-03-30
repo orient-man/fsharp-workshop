@@ -9,6 +9,7 @@ Nice to haves:
 
 * [Visual F# Power Tools](http://fsprojects.github.io/VisualFSharpPowerTools/)
 * [NUnit Test Adapter](https://github.com/nunit/docs/wiki/Visual-Studio-Test-Adapter) (or other test runner like R#/NCrunch)
+* [Postman](https://www.getpostman.com/)
 
 ## Part I: Crash Course
 
@@ -65,11 +66,11 @@ Bonus: Log watching, parsing and charting data.
 
 ## Part IV: Application Development
 
-To Be Done...
+We will upgrade our Writer/Readear to be MicroServices. How cool is that?
 
 Topics:
 
-* Nancy + RestEase
+* [Nancy](http://nancyfx.org/)
 * [Rx](https://github.com/fsprojects/FSharp.Control.Reactive)
 
 
